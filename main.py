@@ -10,7 +10,7 @@ from packaging import version
 from omegaconf import OmegaConf
 from torch.utils.data import random_split, DataLoader, Dataset, Subset
 from functools import partial
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 
 from pytorch_lightning import seed_everything
 from pytorch_lightning.trainer import Trainer
@@ -23,6 +23,9 @@ from ldm.util import instantiate_from_config
 
 import os
 os.environ["PL_TORCH_DISTRIBUTED_BACKEND"] = "gloo"
+
+def get_font(txt, img_fraction=0.05):
+    font = ImageFont.truetype("/Library/fonts/Arial.ttf", fontsize)
 
 def load_model_from_config(config, ckpt, verbose=False):
     print(f"Loading model from {ckpt}")

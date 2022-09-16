@@ -26,7 +26,7 @@ model:
         placeholder_strings: ["*"]
         initializer_words: ["sculpture"]
         per_image_tokens: false
-        num_vectors_per_token: 1
+        num_vectors_per_token: 2
         progressive_words: False
 
     unet_config:
@@ -90,7 +90,7 @@ data:
       params:
         size: 512
         set: val
-        per_image_tokens: false
+        per_image_tokens: true
         repeats: 10
 
 lightning:
@@ -101,7 +101,7 @@ lightning:
     image_logger:
       target: main.ImageLogger
       params:
-        batch_frequency: 500
+        batch_frequency: 20
         max_images: 8
         increase_log_steps: False
 
